@@ -100,9 +100,44 @@ ix <- rev(order(apply(r, 1, mean, na.rm = TRUE)))
 image(years,  1:32, t(log(r[ix,])), ylab = "", yaxt = "n", xlab = "", zlim = c(-8, 0), col = terrain.colors(100))
 mtext("Year", 1, 3.0, cex = 1.5)
 
-r <- NULL
+# Number of missing legs by shell condition:
+boxplot(apply(m, 1, mean) ~ b$shell.condition + b$year)
+r <- aggregate(apply(m, 1, sum), by = b[c("year", "shell.condition")], mean)
+plot(range(years), c(0, 1.8), type = "n", yaxs = "i")
+grid()
 for (i in 1:5){
-   r <- cbind(r, paste0(m[,i], m[,i+5]))
+   ix <- r$shell.condition == i
+   lines(r$year[ix], r$x[ix], col = rainbow(5)[i], lwd = 2)
 }
 
+
+b$cw <- round(b$carapace.width)
+ix <- which(b$maturity)
+r <- aggregate(m[ix,], by = b[ix, c("cw"), drop = FALSE], mean)
+plot(c(40, 110), c(0, 0.1), type = "n", yaxs = "i")
+grid()
+for (i in 1:5){
+   lines(r$cw, r[,i+1], col = rainbow(5)[i], lwd = 2)
+   lines(r$cw, r[,i+6], col = rainbow(5)[i], lwd = 2, lty = "dashed")
+}
+
+
+b$cw <- round(b$carapace.width)
+ix <- which(!b$maturity)
+r <- aggregate(m[ix,], by = b[ix, c("year", "cw"), drop = FALSE], mean)
+plot(c(40, 110), c(0, 0.4), type = "n", yaxs = "i")
+grid()
+res <- matrix(NA, nrow = 150, ncol = length(years))
+dimnames(res) <- list(cw = 1:150, year = years)
+for (i in 1:length(years)){
+   ix <- r$year == years[i]
+   xx <- r$cw[ix]
+   yy <- r[ix,3] + r[ix,3+5]
+   tmp <- aggregate(yy, list(5*round(xx/5)), mean)
+
+   lines(tmp[,1], tmp[,2], col = rainbow(length(years))[i], lwd = 2)
+
+   res[as.character(r$cw[ix]), i] <- apply(r[ix,3:12], 1, sum)
+}
+image(years, as.numeric(rownames(res)),t(log(res)))
 
