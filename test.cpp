@@ -11,6 +11,7 @@ Type objective_function<Type>::operator() (){
    // Parameter section:
    PARAMETER_VECTOR(leg_effect);           // Leg effect parameters.
    PARAMETER(log_sigma_leg);               // Leg effect error parameter.
+
    PARAMETER_VECTOR(L_eps);                // L-matrix for correlated error structure.
    PARAMETER_VECTOR(log_scale_eps);        // Scale parameters for error covariance structure.
    PARAMETER(log_sigma_L_eps);
@@ -45,7 +46,7 @@ Type objective_function<Type>::operator() (){
    L.fill(0); D.fill(0);
    for (int i = 0; i < n_legs; i++) L(i,i) = 1.0;
    for (int i = 1; i < n_legs; i++){
-      for (int j = 0; j < (i-1); j++){
+      for (int j = 0; j < i; j++){
          L(i,j) = L_eps[k]; k++;
       }
    }
