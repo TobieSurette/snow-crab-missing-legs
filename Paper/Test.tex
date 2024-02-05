@@ -1,0 +1,261 @@
+\documentclass[letterpaper, 10pt]{article}
+
+% Specify report title:
+\title{Snow Crab Length-Weight Relationship with Missing Legs}
+       
+% Specify list of authors:     
+\author{T. Surette and E. Wade and M. Moriyasu}
+
+\begin{document}
+\maketitle 
+
+\section{Questions}
+
+\begin{itemize}
+   \item Are the relative proportions of missing legs constant from year to year? In other words,
+         are some legs more abundant, in relative terms, than other leg positions from year to year?
+         Is it just a simple scaling when the missing leg frequency rises?
+   \item How do we explain the relatively low coefficients for regenerated legs?
+   \item The groundfish dataset has much more leg losses due to manipulation. Naturally occurring 
+         missing legs are not identified. We could try to compare results from the two datasets to see 
+         if there is a bias consistent with the water loss hypothesis.
+   \item Who are the co-authors on this study?
+\end{itemize}
+
+\section{Introduction}
+
+\subsection{Biological background}
+Snow crab in the wild often suffer the loss of pereopods (i.e. legs) or parts thereof through various processes such as predation and intra-specific competition. 
+
+In males, overall weight may be significantly reduced owing to the relatively small size of the body with respect to pereopods.
+
+Direct measurement of total catches is problematic as snow crab damaged during sampling may incur significant losses of hemolymph (i.e. internal fluid), leading to negative biases (reference). 
+
+\subsection{Biomass estimation}
+This issue is common in trawl surveys, where crab may be exposed to various physical traumas during  trawling activity.
+
+Consequently size measurements, in combination with an appropriate size-weight model, are often used to estimate individual weights rather than rely on direct observations.
+
+However, such models are usually derived from samples consisting of either intact specimens or heterogeneous data having a variety of missing leg configurations.
+
+The latter case will tend to overestimate the weight of a natural sample while the accuracy of the former rests on the supposition that the prevalence and pattern of missing legs is the same as the sample from which the model was derived. 
+
+There is also a loss of precision associated with using a size-weight model based on heterogeneous data, rather than using missing leg information directly.
+
+However, either length-weight relationships for intact (i.e. no missing legs) are used to make the projections or a single relationship based on a  dataset (with missing legs) is used.
+
+\subsection{Goal of study}
+Because of possible loss of hemolymph, the effects associated with each leg were not estimated by direct measurement of leg weights, but rather by their subtle effect on the total weight of the crab.
+
+The present paper seeks to develop a length-weight model which takes into account the pattern of missing legs of each observed crab.
+
+The present study seeks to derive a length-weight relationship which incorporates the pattern of missing legs in the prediction of individual crab weights.
+
+\subsection{Snow crab survey}
+An annual snow crab trawl survey is performed in the southern Gulf of Saint Lawrence (Figure X). 
+
+Crab catches are sorted and measured for various characteristics, including size, carapace condition, shell hardness, pattern of missing or regenerated legs, but not weighted.
+
+Estimates of trawlable biomass are derived using a size-weight relationship which yields a predicted weight, based on the weight of an intact crab, i.e. a crab with no missing legs.
+
+\subsection{Regenerated legs}
+
+Missing pereopods may be fully regenerated over 2-3 successive moults. 
+
+Such pereopods may be observed in progressive stages of regeneration.
+
+Being smaller, the presence of regenerating legs in a sample will subtly lower the total weight.
+
+Given that the stage of regeneration is unknown, the the presence of regenerating legs may also subtly increase the variance about the predicted weight (i.e. regenerating legs show more variability in size).
+ 
+\subsection{Modelling approach}
+
+An extension of the standard allometric model linking size and weight is applied to the data which allows for the number and position of missing and regenerating legs to be used as predictors. 
+
+Additional variables of interest, such as region, shell condition and handedness are tested for significance. 
+
+Likelihood ratio tests are used to ascertain the significance of predictor variables. 
+
+\section{Methods}
+
+\subsection{Missing leg observational data}
+Observational data on male snow crab was gathered in two locations over two years.
+
+The first location was near Grande Rivière, Québec ($n$ = 2231) in 2010 and the second is from Chéticamp, Nova Scotia ($n$ = 1134) in 2011 (Figure X). 
+
+At each location a series of 10 traps, separated from each other by $\frac{1}{4}$ miles, were distributed along a transect. 
+
+Crab were caught using 6ft conical commercial crab traps. Soak times varied from 1 to 2 days.
+
+Generally all captured crab were measured. 
+However, to increase the number of maimed crab in the sample, a portion of complete crabs on the second and third day of sampling in Chéticamp were left unmeasured, so as to have a ratio of two to one of complete versus maimed crab (i.e. at least 1 missing leg). 
+
+Snow crab traps were set for x days and snow crab were individually measured for size (carapace width), chela height, total weight, shell condition, shell hardness, presence and pattern of missing and/or mutilated legs.
+
+Each crab leg was visually inspected and classified according to the following nine categories:
+\begin{enumerate}
+   \item Pereopod is entirely missing. This is the most important predictor variable in terms of 
+         effect.
+   \item Pereopod is regenerated. The is the second-most important predictor variable, included in the 
+         analysis but effects are much smaller, as expected.
+   \item Pereopod is missing due to sampling and manipulation. Such crab were not included in the 
+         analysis as there were too few to properly test for differences (n = 138).
+   \item Pereopod is half-regenerated. This code was not used (n = 1).
+   \item Pereopod is half-missing (dactyl, propodus and carpus missing) (n = 27 legs). 
+         Not included in the analysis.
+   \item Pereopod (usually merus) is cracked (n = 27). 
+   \item Dactyl is missing (tip of pereopod) (n = 111).
+   \item Pereopod is only a bud (n = 16). Not included in the analysis.
+\end{enumerate}
+
+\subsection{Data Set}
+
+Crab with damaged carapace, cracked pereopods or half-missing legs were not included in the analysis (a total of $191$ crab).
+
+Snow crab with missing dactyls, representing the outermost tip of the leg, were deemed to have negligible impact and so were included in the analysis.
+
+Size and weight data were corrected prior to analysis. 
+Recording or measurement errors in the size-weight data, i.e. those which lay much beyond the central mass of the distribution (i.e. beyond 0.3 units on the log-scale), were removed prior to analysis ($n=19$). 
+
+Which data were not included and why?
+
+\subsection{Analytical model}
+
+A linearized version of the standard allometric model with multiplicative error is obtained by taking the natural logarithm on each side:
+
+\begin{eqnarray*}
+   w &=& \alpha x^\beta e^\epsilon \\
+   \ln w &=& \ln \alpha + \beta \ln x + \epsilon
+\end{eqnarray*}
+
+The resulting model is a linear function of $\ln x$ with slope $\beta$, intercept $\ln \alpha$ and $\epsilon \sim N(0, \sigma^2)$. We extend this model by expressing the $\alpha$ parameter as a linear combination of predictor variables.
+
+Specifically, we include $m_i$ and $r_i$, the number of missing and regenerated legs at the $i^{th}$ position, where $i = 1, \ldots, 5$. $m_i$ and $r_i$ take values $0$, $1$ or $2$. The resulting model is:
+\begin{equation}
+   \ln w = \beta \ln x + \ln{\left(\alpha_0 + \sum_{i=1}^{5}{\alpha_i m_i} 
+                             + \sum_{i=1}^{5}{\gamma_i r_i}\right)} + \epsilon
+\end{equation}
+Where $\alpha_i$ are the coefficients of the missing leg predictors ($\alpha_0$ is the coefficient associated with a crab with no missing legs) and $\gamma_i$ are the coefficients for regenerating legs.
+
+Since the predictors are discrete values, their effect is to modify the intercept of the linearized model.
+
+It can be shown that the expected relative reduction in mass associated with the loss of a single leg at the $i^{th}$ position is given by:
+\begin{equation}
+   \Delta_i = -\frac{\alpha_i}{\alpha_0}
+\end{equation}
+
+Whether the relationship varies with sample site will be verified. 
+
+\section{Modelling the number of missing legs}
+
+As a further analysis, the mean number of missing legs was modelled using crab size, shell condition and sample site. This analysis was repeated for each leg position. Reliable data on regenerated legs was unavailable for these data. 
+
+Snow crab survey data was also available from 1989 to 2012 on the presence and pattern of missing legs. 
+The model also included morphometric maturity and water depth as predictors.
+
+The relative frequencies of leg position were modelled using a multinomial GAM as a function of crab size and water depth. 
+Temporal trends were examined. 
+
+
+To do:
+\begin{itemize}
+   \item Check for differences within the shell conditions.
+   \item Overlay plot of mean number of missing and regenerated legs versus carapace width.
+   \item Prediction of crab size from individual pereopod weights. Can it be done? Draw up a graph of 
+         carapace width versus pereopod weight.
+\end{itemize}
+
+\section{Results}
+
+Inspection of residuals (histograms and quantile plot) were shown to be consistent with the normality consistent.
+
+As the number of particular configurations of missing/regenerated legs is great ($3^{10} = 59049$), only certain groups of crab were examined for consistency, namely complete crabs, those missing a single legs, those missing two legs or those missing three legs.
+
+There were no discernible trends in the residuals versus the carapace width for the intact crabs and those missing only first or second or third or fourth or fifth pereopods.
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{c | c c | c c} 
+    Pereopod & $\alpha_i$ & $\%\Delta_i(\alpha_i)$ & $\gamma_i$ & $\Delta_i(\gamma_i)$ \\    
+    \hline 
+    $1$ & $-3.45 \cdot 10^{-5}$ & $8.91$ & $-5.39 \cdot 10^{-6}$  & $1.39$ \\
+    $2$ & $-2.27 \cdot 10^{-5}$ & $5.87$ & $-3.67 \cdot 10^{-6}$  & $0.95$ \\
+    $3$ & $-1.82 \cdot 10^{-5}$ & $4.70$ & $-2.81 \cdot 10^{-6}$  & $0.73$ \\
+    $4$ & $-1.66 \cdot 10^{-5}$ & $4.28$ & $-3.36 \cdot 10^{-6}$  & $0.87$ \\
+    $5$ & $-4.02 \cdot 10^{-6}$ & $1.04$ & $-4.39 \cdot 10^{-6}$  & $1.13$ \\
+    \hline
+    \end{tabular}
+  \end{center}
+  \caption{Missing and regenerated pereopod coeffcients, along with the relative reduction in total
+           weight associated with each.}
+\end{table}
+
+
+\section{Discussion}
+
+\subsection{Left and right-handedness}
+
+There is little evidence of favoured pereopod loss on the right versus the left-hand size of the crab.  
+
+Contrary to some crab species which have one chela larger than the other (formal name?), there is no physical evidence for this in snow crab. 
+
+The equality of loss levels on the two sides in a given year seem to support this.
+
+Significance tests showed that while formally significant the estimated levels are...
+
+Plotting of handedness on a map showed that...
+
+\subsection{Relative frequencies of pereopod loss}
+
+\subsubsection{Global frequencies}
+The probability of pereopod loss at each position is a function of its degree of exposure to physical trauma and its overall robustness, at least at the level its coxa, the point where the pereopod attaches to the body.
+
+The pereopods which carry the chelae are structurally more robust (i.e. thicker, stouter) than the other pereopods. 
+
+Pereopods 2 through 5 have more or less all the same shape, and the size of pereopods 2 is the largest; 3 and 4 are approximately the same size, while the 5 pereopod has a much smaller size.
+
+The $2^{nd}$ pereopod has the highest probability of loss. 
+
+This may be explained in two ways: the $2^{nd}$ pereopods are in fact longer than the first pereopods, to the point that they may even protrude in front of the chela pereopods. 
+
+As such, this feature may expose it more than the first pereopod during frontal interactions. 
+
+Also, suppose we view the risk of trauma as decreasing from front to back, given that the first pereopods are the most robust (to the point that have the lower probability of loss), then it becomes natural to suppose that the second pereopods, as the more exposed second choice, would have the highest probability of loss. 
+
+The probabilities of the third and fourth pereopods are lower and essentially equal under the same suppositions.
+
+The fifth pereopod is much smaller than the others and so more vulnerable to traumas. Loss of the fifth pereopod may also be a function of increased exposure during fleeing.
+
+\subsubsection{Temporal variations}
+
+The relative frequencies of each leg through time were relatively constant.
+
+\subsubsection{Size variations}
+
+For all years combined, female snow crab relative leg-loss frequencies showed very little variation with size. Immature females had very low first leg-loss frequencies and mature females had very stable leg loss frequencies, showing perhaps relative trauma exposure which was fairly constant with size.
+
+The main variation for males was the in the loss of the first and second pereopods. The relative loss of the first pereopod declined with size, gradually tapering off with larger size. A concurrent increase in the loss of 2nd pereopod can be observed. This pattern is most notable in immature males, but is present to a lesser extent in mature males.
+
+\subsection{Dynamics between missing and regenerated leg}
+
+Since missing legs become regenerating legs in moulting crab, there is a tight relationship between the observed frequencies of the two types. We make the following observations:
+
+\begin{itemize}
+   \item Missing legs which occur in mature crab will accumulate over time. There is no regeneration 
+         as there is no growth.
+   \item There are a number of variables which could explain the probability of pereopod loss. The 
+         size of the crab, its sexual maturity, etc...
+   \item If the crab lose their legs during moulting does this change anything?
+   \item Le nombre moyen de pattes manquantes des SC3 est d'environ 0.3 pattes/crab. Le nombre moyen 
+         de pattes regénérées est d'environ 0.16 pattes/crabe, soit la moitié. Étant donné que: 1) Le
+         taux de pattes manquantes semble être plus élevé pour les petits crabes et que 2) ça prend
+         environ 3 mues pour complètement regénérer une patte, ne serait-il pas plus logique que le
+         taux de pattes manquantes devrait être plus élevé que taux de pattes regénérés?
+\end{itemize}
+
+\newpage
+
+\section{Acknowledgements}
+We would like to give special thanks to Michel Biron and Renée Allain for the design and execution of the observational data sets as well as Rita Cormier, Cindy LaPlante and Tanya Dickens for technical assistance.   
+
+\end{document}

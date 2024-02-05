@@ -1,0 +1,444 @@
+\ProvidesPackage{gulf}
+
+% Use french accents directly within the text:
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage[letterpaper, top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage{url}
+\usepackage{hyperref}
+
+% Set page dimensions:
+\setlength{\textheight}{9.0in}
+\setlength{\textwidth}{6.5in}
+
+% Set paragraph spacing rules:
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+
+% Set default font to arial:
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+\newcommand{\reporttype}{technical}
+\newcommand{\reportnumber}{XXXX}
+\newcommand{\email}{}
+
+% Define default address:
+\newcommand{\address}{
+  Regional Science Branch \\ 
+  Fisheries and Oceans Canada \\ 
+  Gulf Fisheries Center \\
+  343 University Avenue \\
+  Moncton, NB \\
+  E1C 9B6}
+         
+% Define format of section headings:
+\renewcommand\thesection{\arabic{section}.0.}
+\makeatletter%
+\renewcommand\section{\@startsection%
+  {section}%
+  {1}%
+  {0mm}%
+  {-\baselineskip}%
+  {0.5\baselineskip}%
+  {\center\bf\MakeUppercase}}%
+\makeatother
+
+% Define format of subsection headings:
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}.}
+\makeatletter
+\renewcommand\subsection{\@startsection
+  {subsection}{2}{0mm}%
+  {-\baselineskip}%
+  {0.5\baselineskip}%
+  {\flushleft\bf\MakeUppercase}}%
+\makeatother
+
+% Define format of subsubsection headings:
+\renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}
+\makeatletter
+\renewcommand\subsubsection{\@startsection
+  {subsubsection}{3}{0mm}%
+  {-\baselineskip}%
+  {0.5\baselineskip}%
+  {\flushleft\bf\underline}}%
+\makeatother
+
+% Sans-serif font family:
+\sffamily
+
+% Initial pages are roman numerals:
+\pagenumbering{roman}
+
+% Define title page:
+\makeatletter
+\def\maketitle{
+  \null
+  \thispagestyle{empty}
+  
+  % Define english report name:  
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\report}{Data}}{}
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\report}{Technical}}{}
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\report}{Manuscript}}{}
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\report}{Industry}}{}
+  % Define french report name:
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\rapport}{statistique canadien}}{}
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\rapport}{technique canadien}}{}
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\rapport}{manuscrit canadien}}{}
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\rapport}{canadien à l'industrie}}{}
+    
+  %\vspace*{0.5in}
+  \begin{minipage}[t][1.0in][b]{\textwidth}
+    \doublespacing
+    \flushleft
+    \textbf{\LARGE \@title}
+  \end{minipage}  
+    
+  \vspace*{1.0in}  
+  
+  \begin{minipage}[c]{\textwidth}
+    \Large \@author
+  \end{minipage} 
+      
+  \vspace*{1.0in}
+  
+  \begin{minipage}[c]{\textwidth}
+    \singlespacing
+    \Large \address
+  \end{minipage} 
+    
+  \vspace*{0.75in}
+  
+  \begin{minipage}[t]{\textwidth}
+    \textsc{\Large \the\year}
+  \end{minipage} 
+    
+  \vspace*{0.75in}  
+  
+  \begin{minipage}[t][1.0in][t]{\textwidth}
+    \doublespacing
+    \textbf{\LARGE Canadian \report{} Report of \\ Fisheries and Aquatic Sciences 
+            \reportnumber}               
+  \end{minipage} 
+    
+  \vfill
+  % Draw Fisheries and Oceans and Canadian logos:   
+  \begin{minipage}[t][1.0cm][t]{0.40in}
+    \ \\[-1.2ex]     
+    \includegraphics[width = 0.40in]{Flag_Of_Canada}
+  \end{minipage}
+  \begin{minipage}[t]{0.20\textwidth}
+    \small      
+    Fisheries and Oceans \\[-0.5ex]
+    Canada   
+  \end{minipage}
+  \begin{minipage}[t]{0.20\textwidth}
+    \small      
+    Pêches et Océans \\[-0.5ex]
+    Canada   
+  \end{minipage} 
+  \begin{minipage}[t][1.0cm][t]{0.45\textwidth}      
+    \begin{flushright}
+    \ \\[-1.2ex]     
+    \includegraphics[height = 0.25in]{canadalogo} 
+    \end{flushright}            
+  \end{minipage}    
+
+  \null
+  \cleardoublepage
+  \newpage
+  
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\reportDescriptionEn}{
+    Data reports provide a medium for filing and archiving data compilation where little 
+    or no analysis is included. Such compilations commonly will have been prepared in 
+    support of other journal publications or reports. The subject matter of data reports 
+    reflects the broad interests and policies of the Department of Fisheries and Oceans, 
+    namely, fisheries and aquatic sciences. 
+  
+    Data reports are not intended for general distribution and the contents must not be 
+    referred to in other publications without prior written authorization from the issuing 
+    establishment. The correct citation appears above the abstract of each report. Data 
+    reports are abstracted in \emph{Aquatic Sciences and Fisheries Abstracts} and indexed in the 
+    Department's annual index to scientific and technical publications.
+
+    Numbers 1-25 in this series were issued as Fisheries and Marine Service Data Records.
+    Numbers 26-160 were issued as Department of Fisheries and the Environment, Fisheries 
+    and Marine Service Data Reports. The current series name was introduced with the 
+    publication of report number 161.
+  
+    Data reports are produced regionally but are numbered nationally. Requests for
+    individual reports will be filled by the issuing establishment listed on the front 
+    cover and title page. Out-of-stock reports will be supplied for a fee by commercial
+    agents.}}{}
+  
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\reportDescriptionEn}{
+    Technical reports contain scientific and technical information that contributes to 
+    existing knowledge but which is not normally appropriate for primary literature. 
+    Technical reports are directed primarily toward a worldwide audience and have 
+    an international distribution. No restriction is placed on subject matter and 
+    the series reflects the broad interests and policies of the Department of Fisheries
+    and Oceans, namely, fisheries and aquatic sciences. 
+    
+    Technical reports may be cited as full publications. The correct citation appears 
+    above the abstract of each report. Each report is abstracted in \emph{Aquatic Sciences 
+    and Fisheries Abstracts} and indexed in the Department's annual index to scientific
+    and technical publications. 
+    
+    Numbers 1 - 456 in this series were issued as Technical Reports of the Fisheries 
+    Research Board of Canada. Numbers 457 - 714 were issued as Department of the Environment, 
+    Fisheries and Marine Service Technical Reports. The current series name was changed 
+    with report number 925.
+
+    Technical reports are produced regionally but are numbered nationally. Requests 
+    for individual reports will be filled by the issuing establishment listed on the 
+    front cover and title page. Out-of-stock reports will be supplied for a fee by 
+    commercial agents.}}{}
+  
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\reportDescriptionEn}{
+    Industry reports contain the results of research and development useful to 
+    industry for either immediate or future application. They are directed primarily 
+    toward individuals in the primary and secondary sectors of the fishing and marine 
+    industries. No restriction is placed on subject matter, and the series reflects 
+    the broad interests and policies of the Department of Fisheries and Oceans, namely,
+    fisheries and aquatic sciences.
+    
+    Industry reports may be cited as full publications. The correct citation appears 
+    above the abstract of each report. Each report is indexed in the data base 
+    \emph{Aquatic Sciences and Fisheries Abstracts}.
+    
+    Numbers 1-91 in this series were issued as Project Reports of the Industrial 
+    Development Branch, Technical Reports of the Industrial Development Branch, and 
+    Technical Reports of the Fisherman's Service Branch. Numbers 92-110 were issued 
+    as Department of Fisheries and Environment, Fisheries and Marine Service Industry 
+    Reports. The current series name was changed with report number 111.
+    
+    Industry reports are produced regionally but are numbered nationally. Requests 
+    for individual reports will be filled by the issuing establishment listed on the 
+    front cover and title page. Out-of-stock reports will be supplied for a fee by 
+    commercial agents.}}{}
+    
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\reportDescriptionEn}{
+    Manuscript reports contain scientific and technical information that contributes
+    to existing knowledge but which deals with national or regional problems. 
+    Distribution is restricted to institutions or individuals located in particular 
+    regions of Canada. However, no restriction is placed on subject matter, and the 
+    series reflects the broad interests and policies of Fisheries and Oceans Canada, 
+    namely, fisheries and aquatic sciences.
+    
+    Manuscript reports may be cited as full publications. The correct citation appears 
+    above the abstract of each report. Each report is abstracted in the data base 
+    Aquatic Sciences and Fisheries Abstracts. 
+    
+    Manuscript reports are produced regionally but are numbered nationally. Requests 
+    for individual reports will be filled by the issuing establishment listed on the 
+    front cover and title page. 
+    
+    Numbers 1-900 in this series were issued as Manuscript Reports (Biological Series) 
+    of the Biological Board of Canada, and subsequent to 1937 when the name of the 
+    Board was changed by Act of Parliament, as Manuscript Reports (Biological Series) 
+    of the Fisheries Research Board of Canada. Numbers 1426 - 1550 were issued as 
+    Department of Fisheries and Environment, Fisheries and Marine Service Manuscript 
+    Reports. The current series name was changed with report number 1551.}}{}
+
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\reportDescriptionFr}{   
+    Les rapports statistiques servent de base à la compilation des données de classement et 
+    d'archives pour lesquelles il y a peu ou point d'analyse. Cette compilation aura d'ordinaire 
+    été préparée pour appuyer d'autres publications ou rapports. Les sujets des rapports 
+    statistiques reflètent la vaste gamme des intérêts et politiques de Pêches et 
+    Océans Canada, notamment la gestion des pêches, la technologie et le développement, les 
+    sciences océaniques et l'environnement aquatique, au Canada.
+
+    Les rapports statistiques ne sont pas préparés pour une vaste distribution et leur contenu 
+    ne doit pas être mentionné dans une publication sans autorisation écrite préalable 
+    de l'établissement auteur. Le titre exact figure au haut du résumé de chaque rapport. 
+    Les rapports à l'industrie sont résumés dans la base de données 
+    \emph{Résumés des sciences aquatiques et halieutiques}.
+
+    Les rapports statistiques sont produits à l'échelon régional, mais numérotés 
+    à l'échelon national. Les demandes de rapports seront satisfaites par l'établissement 
+    d'origine dont le nom figure sur la couverture et la page du titre.
+
+    Les numéros 1 à 25 de cette série ont été publiés à titre de Records 
+    statistiques, Service des pêches et de la mer. Les numéros 26-160 ont été 
+    publiés à titre de Rapports statistiques du Service des pêches et de la mer, 
+    ministère des Pêches et de l'Environnement. Le nom de la série a été modifié 
+    à partir du numéro 161.}}{}
+ 
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\reportDescriptionFr}{ 
+    Les rapports techniques contiennent des renseignements scientifiques et 
+    techniques qui constituent une contribution aux connaissances actuelles, mais 
+    que ne sont pas normalement appropriés pour la publication dans un journal 
+    scientifique. Les rapports techniques sont destinés essentiellement à un public
+    international et ils sont distribués à cet échelon. Il n’y a aucune restriction
+    quant au sujet; de fait, la série reflète la vaste gamme des intérêts et des
+    politiques du ministère des Pêches et des Océans, c’est-à-dire les scences 
+    halieutiques et aquatiques.
+      
+    Les rapports techniques peuvent être cités comme des publications complètes.
+    Le titre exact paraît au-dessus du résumé de chaque rapport. Les rapports 
+    techniques sont résumés dans la revue \emph{Résumés des sciences aquatiques 
+    et halieutiques}, et ils sont classés dans l’index annual des publications 
+    scientifiques et techniques du Ministère.
+     
+    Les numéros 1 à 456 de cette série ont été publiés à titre de rapports 
+    techniques de l’Office des recherches sur les pêcheries du Canada. Les numéros 
+    457 à 714 sont parus à titre de rapports techniques de la Direction générale 
+    de la recherche et du développement, Service des pêches et de la mer, ministère 
+    de l'Environnement. Les numéros 715 à 924 ont été publiés à titre de rapports
+    techniques du Service des pêches et de la mer, ministère des Pêches et de 
+    l’Environnement. Le nom actuel de la série a été établi lors de la parution 
+    du numéro 925. 
+      
+    Les rapports techniques sont produits à l’échelon regional, mais numérotés 
+    à l’échelon national. Les demandes de rapports seront satisfaites par 
+    l’établissement auteur dont le nom figure sur la couverture et la page du titre. 
+    Les rapports épuisés seront fournis contre rétribution par des agents commerciaux.}}{} 
+
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\reportDescriptionFr}{
+    Les rapports à l’industrie contiennent les résultats des activités de recherche
+    et de développement qui peuvent être utiles à l’industrie pour des applications 
+    immédiates ou futures. Ils sont surtout destinés aux membres des secteurs primaire 
+    et secondaire de l’industrie des pêches et de la mer. Il n’y a aucune restriction 
+    quant au sujet; de fait, la série reflète la vaste gamme des intérêts et des 
+    politiques du ministère des Pêches et des Océans, c’est-à-dire les sciences 
+    halieutiques et aquatiques.
+    
+    Les rapports à l’industrie peuvent être cités comme des publications intégrales. 
+    Le titre exact paraît au-dessus du résumé de chaque rapport. Les rapports à 
+    l’industrie sont indexés dans la base de données \emph{Aquatic Sciences and Fisheries 
+    Abstracts}.
+    
+    Les numéros 1 à 91 de cette série ont été publiés à titre de rapports sur les 
+    travaux de la Direction du développement industriel, de rapports techniques de
+    la Direction du développement industriel, et de rapports techniques de la 
+    Direction des services aux pêcheurs. Les numéros 92 à 110 sont parus à titre 
+    de rapports à l’industrie du Service des pêches et de la mer, ministère des Pêches
+    et de l’Environnement. Le nom actuel de la série a été établi lors de la parution 
+    du numéro 111.
+    
+    Les rapports à l’industrie sont produits à l’échelon régional, mais numérotés à 
+    l’échelon national. Les demandes de rapports seront satisfaites par l’établissement 
+    d’origine dont le nom figure sur la couverture et la page du titre. Les rapports
+    épuisés seront fournis contre rétribution par des agents commerciaux.}}{}
+   
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\reportDescriptionFr}{  
+    Les rapports manuscrits contiennent des renseignements scientifiques et techniques
+    qui constituent une contribution aux connaissances actuelles, mais qui traitent 
+    de problèmes nationaux ou régionaux. La distribution en est limitée aux organismes 
+    et aux personnes de régions particulières du Canada. Il n'y a aucune restriction 
+    quant au sujet; de fait, la série reflète la vaste gamme des intérêts et des 
+    politiques de Pêches et Océans Canada, c'est-à-dire les sciences halieutiques 
+    et aquatiques.
+    
+    Les rapports manuscrits peuvent être cités comme des publications à part entière. 
+    Le titre exact figure au-dessus du résumé de chaque rapport. Les rapports manuscrits 
+    sont résumés dans la base de données Résumés des sciences aquatiques et halieutiques.
+    
+    Les rapports manuscrits sont produits à l'échelon régional, mais numérotés à l'échelon 
+    national. Les demandes de rapports seront satisfaites par l'établissement auteur dont 
+    le nom figure sur la couverture et la page du titre.
+    
+    Les numéros 1 à 900 de cette série ont été publiés à titre de Manuscrits (série 
+    biologique) de l'Office de biologie du Canada, et après le changement de la 
+    désignation de cet organisme par décret du Parlement, en 1937, ont été classés 
+    comme Manuscrits (série biologique) de l'Office des recherches sur les pêcheries 
+    du Canada. Les numéros 901 à 1425 ont été publiés à titre de Rapports manuscrits de
+    l'Office des recherches sur les pêcheries du Canada. Les numéros 1426 à 1550 
+    sont parus à titre de Rapports manuscrits du Service des pêches et de la mer, 
+    ministère des Pêches et de l'Environnement. Le nom actuel de la série a été 
+    établi lors de la parution du numéro 1551.}}{}
+
+  % Print english report desription:
+  \begin{center}
+     \textbf{Canadian \report{} Report of Fisheries and Aquatic Sciences}\\
+  \end{center}  
+  \reportDescriptionEn
+
+  {\vspace*{0.5in}}
+  
+  % Print english report desription:
+  \begin{center}
+    \textbf{Rapport \rapport{} des sciences halieutiques et aquatiques}\\
+  \end{center} 
+  \reportDescriptionFr
+   
+  \newpage
+  
+  \doublespacing
+  \begin{center}
+    { \vspace*{1in}}
+    \textsf{\large Canadian \report{} Report of \\ Fisheries and Aquatic Sciences 
+            \reportnumber}\\
+    \vspace{1in}
+    \textsf{\large \the\year}\\
+    \onehalfspacing
+    \vspace{1.0in}
+    \MakeUppercase{\@title}\\
+    \vspace{0.5in}
+    by\\
+    \vspace{0.5in}
+    \@author\\
+    \vspace{0.5in}
+    \singlespacing
+    \address \\
+    \ifthenelse{\equal{\email}{}}{}{E-mail: \href{mailto:\email}{\email} \\} 
+  \end{center} 
+   
+  \newpage
+  \makecolophon
+}
+\makeatother
+
+\makeatletter
+\def\makecolophon{
+  % Define report abbreviation:  
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\reportabbrev}
+    {Can. Data Rep. Fish. Aquat. Sci.}}{}
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\reportabbrev}
+    {Can. Tech. Rep. Fish. Aquat. Sci.}}{}
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\reportabbrev}
+    {Can. Manuscr. Rep. Fish. Aquat. Sci.}}{}
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\reportabbrev}
+    {Can. Ind. Rep. Fish. Aquat. Sci.}}{}
+
+  % Define ISSN number:  
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\ISSNnumber}{0706-6465}}{}
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\ISSNnumber}{0706-6457}}{}
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\ISSNnumber}{0706-6473}}{}
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\ISSNnumber}{0706-3694}}{}
+
+  % Define catalog number:
+  \ifthenelse{\equal{\reporttype}{data}}{\newcommand{\catalognumber}{Fs 97-13}}{}
+  \ifthenelse{\equal{\reporttype}{technical}}{\newcommand{\catalognumber}{Fs 97-6}}{}
+  \ifthenelse{\equal{\reporttype}{manuscript}}{\newcommand{\catalognumber}{Fs 97-4}}{}
+  \ifthenelse{\equal{\reporttype}{industry}}{\newcommand{\catalognumber}{Fs 97-14}}{}
+  
+  {\vspace*{5.8in}}
+  \doublespacing
+  \begin{center}
+    \singlespacing
+    \copyright Her Majesty the Queen in Right of Canada, \the\year. \\
+               Cat. No. {\catalognumber{}}/\reportnumber{} 
+               \quad ISSN \ISSNnumber{}\\
+  \end{center}
+
+  \vspace{0.5in}
+  \noindent Correct citation for this publication: \\
+  \singlespacing
+  \noindent \@author. \the\year. \@title. \reportabbrev{} \reportnumber 
+  : xii + \pageref{LastPage} p.\\ 
+  
+  \newpage
+}
+\makeatother
+
+
+
+
+

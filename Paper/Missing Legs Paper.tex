@@ -1,0 +1,135 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{natbib}
+\usepackage{gulf}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{verbatim}
+\usepackage{algorithmic}
+\usepackage{float}
+
+\newcommand{\R}{\textbf{R~}}
+
+% Specify report title:
+\title{Snow Crab Length-Weight Relationship with Missing Legs}
+       
+% Specify list of authors:     
+\author{T. Surette and E. Wade}
+
+% Specify report number:
+% \renewcommand{\reportnumber}{XXXX}     
+
+% Specify type of report (i.e. 'technical', 'data', 'manuscript' or 'industry')
+\renewcommand{\reporttype}{technical}   
+
+% Specify e-mail address:
+\renewcommand{\email}{surettetj@dfo-mpo.gc.ca}  
+
+\begin{document}
+\maketitle 
+
+\tableofcontents
+\newpage
+
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+
+
+\newpage
+
+\section*{List of Tables}
+\addcontentsline{toc}{section}{List of Tables}
+\renewcommand\listtablename{}
+\listoftables
+\newpage
+
+\section*{List of Figures}
+\addcontentsline{toc}{section}{List of Figures}
+\renewcommand\listfigurename{}
+\listoffigures
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Introduction}
+
+Snow crab loose chelae or legs through various natural processes such as predation and intra-specific competition. 
+
+An annual snow crab trawl survey is performed in the southern Gulf of Saint Lawrence (Figure X). 
+
+Crab catches are sorted and measured for various characteristics, including size, carapace condition, shell hardness, presence of missing or regenerated legs, but not weighted.
+
+Estimates of trawlable biomass are derived using a size-weight relationship which yields a predicted weight, based on the weight of an intact crab, i.e. a crab with no missing legs.
+
+Owing to the relatively small size of the body, loss of legs can have a significant effect on the overall weight.
+
+Thus the biomass estimates are slightly overestimated as crab found in nature contain a portion which have, through various processes such as predation and intra-specific competition, a number of missing legs.
+
+The present study seeks to derive a length-weight relationship which incorporates the pattern of missing legs in the prediction of individual crab weights.
+
+
+\section{Methods}
+
+
+An observation study was performed at two locations.
+
+The first is near Grande Rivière, Québec (n = 2000) and the second is from Chéticamp, Nova Scotia.
+
+Only male snow crab were caught.
+
+Snow crab traps were set for 1-2 days and snow crab were individually measured for size (carapace width), chela height, shell condition, shell hardness, 
+
+Crab with damaged parts, such as the body (carapace) were not included in the analysis.
+
+The observed type of dama
+
+\subsection{Analyses}
+
+\begin{equation}
+   w = \alpha x^\beta e^\epsilon 
+\end{equation}
+
+Taking the logarithm on each side, this equation is linearized to 
+
+\begin{equation}
+   \ln w = \beta \ln x + \ln \alpha + \epsilon
+\end{equation}
+where $\ln w$ is a linear function of $\ln x$. The exponent $\beta$ becomes the slope parameter and $\ln \alpha$ the intercept parameter.
+
+The model used in the length-weight analyses is an extension of the standard allometric model which allows for variation in the $\alpha$ parameter as a function of the number and position of each missing leg.
+
+\begin{equation}
+   \ln w = \beta \ln x + \ln{\left(\alpha_0 + \sum_{i=1}^{5}{\alpha_i m_i} 
+                             + \sum_{i=1}^{5}{\gamma_i r_i}\right)} + \epsilon
+\end{equation}
+
+where $m_i$ is the number of missing legs and $r_i$ is the number of missing legs at the $i^{th}$ position.
+
+Missing legs may be regenerated during moults. 
+Generally, multiple moults are required.  
+Thus regenerated legs may be found in various stages of regeneration. 
+Confounding of these multiple stages of regeneration will possibly increase the observed predicted variation about the predicted weight.
+The coefficient associated with each regenerated leg is thus an averaging of multiple stages of regeneration.
+
+Whether the relationship varies with sample site will be verified. 
+
+As a further analysis, the number of missing legs versus the size of the crab, along with sample site, shell condition.
+
+\section{Results}
+
+
+
+
+
+
+\section{Discussion}
+
+
+
+\newpage
+
+
+
+\end{document}

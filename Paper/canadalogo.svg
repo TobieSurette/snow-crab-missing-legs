@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000"
+   height="500"
+   id="svg2949"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="canadalogo.svg">
+  <metadata
+     id="metadata2961">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2959">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 250 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="1000 : 250 : 1"
+       inkscape:persp3d-origin="500 : 166.66667 : 1"
+       id="perspective2963" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1144"
+     inkscape:window-height="800"
+     id="namedview2957"
+     showgrid="false"
+     inkscape:zoom="0.97273283"
+     inkscape:cx="412.97727"
+     inkscape:cy="807.13658"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g2968" />
+  <g
+     id="g2968">
+    <g
+       id="g3082"
+       transform="translate(-1.2721241,1.0903921)">
+      <g
+         transform="matrix(0.06559531,0,0,0.06559531,292.77527,-493.96916)"
+         id="g2965"
+         style="font-size:726.77563477px">
+        <rect
+           id="rect2951"
+           height="500"
+           width="1000"
+           x="0"
+           y="0"
+           style="font-size:726.77563477px;fill:#ff0000" />
+      </g>
+      <rect
+         width="32.797653"
+         height="32.797653"
+         x="309.1741"
+         id="rect2953"
+         y="-493.96915"
+         style="font-size:726.77563477px;fill:#ffffff" />
+      <path
+         d="m 325.57242,-490.89438 -2.23766,4.17352 c -0.25391,0.45359 -0.70884,0.41152 -1.16377,0.15818 l -1.62001,-0.83887 1.20742,6.41044 c 0.25391,1.17115 -0.56075,1.17115 -0.96279,0.66476 l -2.82723,-3.16504 -0.45899,1.60728 c -0.0529,0.21107 -0.28566,0.43277 -0.6348,0.37997 l -3.57506,-0.75166 0.93901,3.41389 c 0.20102,0.75963 0.35782,1.07414 -0.20293,1.27449 l -1.27427,0.5989 6.15424,4.99891 c 0.24358,0.18902 0.36666,0.52916 0.27994,0.83714 l -0.53863,1.7676 c 2.11899,-0.24426 4.01765,-0.61174 6.13771,-0.83806 0.18716,-0.02 0.50049,0.28889 0.4992,0.50578 l -0.28076,6.47579 1.03026,0 -0.16217,-6.4619 c -10e-4,-0.21689 0.28296,-0.53965 0.47012,-0.51967 2.12006,0.22632 4.01872,0.5938 6.13771,0.83806 l -0.53862,-1.7676 c -0.0867,-0.30798 0.0364,-0.64812 0.27994,-0.83714 l 6.15423,-4.99891 -1.27427,-0.5989 c -0.56075,-0.20035 -0.40395,-0.51486 -0.20293,-1.27449 l 0.93901,-3.41389 -3.57506,0.75166 c -0.34914,0.0528 -0.58187,-0.1689 -0.6348,-0.37997 l -0.45899,-1.60728 -2.82723,3.16504 c -0.40204,0.50639 -1.2167,0.50639 -0.96279,-0.66476 l 1.20742,-6.41044 -1.62001,0.83887 c -0.45494,0.25334 -0.90986,0.29541 -1.16377,-0.15818"
+         id="path2955"
+         style="font-size:726.77563477px;fill:#ff0000" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:155.11950684px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
+       x="-104.23296"
+       y="-385.03671"
+       id="text3015"><tspan
+         sodipodi:role="line"
+         id="tspan3017"
+         x="-104.23296"
+         y="-385.03671">Canada</tspan></text>
+  </g>
+</svg>
