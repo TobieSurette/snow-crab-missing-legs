@@ -117,8 +117,8 @@ axis(1, at = seq(1990, 2025, by = 5))
 dev.off()
 
 # Time series by maturity and carapace width:
-leg <- 5
-#png(file = paste0("results/figures/Mature leg ", leg, " vs cw loss rates.png"), res = 500, width = 7, height = 9, units = "in")
+leg <- 1
+png(file = paste0("results/figures/Immature leg ", leg, " vs cw loss rates.png"), res = 500, width = 7, height = 9, units = "in")
 l <- rbind(0, cbind(0, kronecker(c(1, 1, 2), matrix(1, ncol = 5, nrow = 5)), 0), 0, 0)
 layout(l)
 
@@ -128,7 +128,7 @@ logit <- function(x) return(log(x/(1-x)))
 for (j in 1:2){
    # Compile stats:
    legs <- c(leg, leg+5)
-   ix <- (b$sex == j) & is.mature(b)
+   ix <- (b$sex == j) & !is.mature(b)
    r <- matrix(NA, nrow = length(years), ncol = 76)
    dimnames(r) <- list(year = years, cw = seq(0, 150, by = 2))
 
@@ -138,13 +138,16 @@ for (j in 1:2){
       r[as.character(years[i]), as.character(tmp$cw2[tmp$year == years[i]])] <- tmp$value[tmp$year == years[i]]
    }
    r[r == 0 | r == 1] <- NA
-   breaks <- quantile(as.numeric(logit(r)), p = c(0.025, 0.05, seq(0.1, 0.9, by = 0.1), 0.95, 0.975), na.rm = TRUE)
+   r <- (logit(r) - mean(logit(r), na.rm = TRUE)) / sd(logit(r), na.rm = TRUE)
+   breaks <- seq(-3, 3, by = 0.1)
+   cols <- fade(colorRampPalette(c("red", "orange", "yellow", "green2", "blue"))(length(breaks)-1), 0.8)
+   cols <- fade(colorRampPalette(c("red", "white", "blue"))(length(breaks)-1), 0.8)
 
    par(mar = c(0,0,0,0))
    #breaks = c(-7, -6 , -5, -4.5, -4, -3.75, -3.5, -3.25, -3, -2.5, -2, -1, 0)
    if (j == 1) ylim <- c(40, 120) else ylim <- c(40, 80)
-   image(years, as.numeric(colnames(r)), logit(r), ylim = ylim, xaxt = "n", yaxt = "n",
-         breaks = breaks, col = rev(grey.colors(length(breaks)-1)))
+   image(years, as.numeric(colnames(r)), r, ylim = ylim, xaxt = "n", yaxt = "n",
+         breaks = breaks, col = cols)
 
    if (j == 1) mtext("Carapace width (mm)", 2, 2.5, at = ylim[1] +20, font = 2, cex = 1.25)
    if (j == 1) axis(2, at = seq(ylim[1], ylim[2], by = 10))
@@ -156,4 +159,4 @@ for (j in 1:2){
 }
 mtext("Year", 1, 2.75, font = 2, cex = 1.25)
 axis(1, at = seq(1990, 2025, by = 5))
-#dev.off()
+dev.off()
